@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ImageGridIssue.MainPage">
+    <VerticalStackLayout>
+        <Label FontSize="Header" FontAttributes="Bold" Text="Using Absolute Layout" />
+        <Grid Margin="10">
+            <AbsoluteLayout>
+                <Button
+                    AbsoluteLayout.LayoutBounds="0,0.5,-1,-1"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    Clicked="LeftClicked"
+                    Margin="15,0,0,0"
+                    Text="One" />
+                <Image
+                    BackgroundColor="Green"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                    HeightRequest="76"
+                    Source="logo_dark.png" />
+                <Button
+                    Clicked="RightClicked"
+                    Margin="0,0,15,0"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="1,0.5,-1,-1"
+                    Text="Two" />
+            </AbsoluteLayout>
+        </Grid>
+
+        <Label FontSize="Header" FontAttributes="Bold" Text="Using Grid" />
+        <Grid ColumnDefinitions="Auto,*,Auto" Margin="10">
+            <Button
+                Clicked="LeftClicked"
+                VerticalOptions="Center"
+                Margin="15,0,0,0"
+                Text="One" />
+            <Image
+                BackgroundColor="Green"
+                Grid.Column="1"
+                HeightRequest="76"
+                HorizontalOptions="Center"
+                Source="logo_dark.png" />
+            <Button
+                Clicked="RightClicked"
+                Margin="0,0,15,0"
+                VerticalOptions="Center"
+                Grid.Column="2"
+                Text="Two" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
