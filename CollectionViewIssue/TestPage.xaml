@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:CollectionViewIssue.ViewModels"
+             x:Class="CollectionViewIssue.TestPage"
+             x:DataType="{x:Type vm:TestPageViewModel}"
+             Title="TestPage">
+    <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}">
+        <Grid>
+            <CollectionView
+                ItemsSource="{Binding Items}"
+                RemainingItemsThreshold="10"
+                RemainingItemsThresholdReachedCommand="{Binding LoadMoreItemsCommand}">
+                <CollectionView.EmptyView>
+                    <Label Text="No items!!" HorizontalOptions="Center" VerticalOptions="Center" />
+                </CollectionView.EmptyView>
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="{x:Type vm:DocumentItem}">
+                        <Border Margin="10,0,10,0">
+                            <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10" Margin="5">
+                                <Image Source="template.png" WidthRequest="36" />
+                                <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center" />
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </RefreshView>
+</ContentPage>
