@@ -19,7 +19,7 @@
                 </CollectionView.ItemsLayout>
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="{x:Type vm:DocumentItem}">
-                        <Border Margin="10,0,10,0">
+                        <Border Margin="10,0,10,0" Background="White">
                             <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10" Margin="5">
                                 <Image Source="template.png" WidthRequest="36" />
                                 <Label Grid.Column="1" Text="{Binding Name}" VerticalOptions="Center" />
